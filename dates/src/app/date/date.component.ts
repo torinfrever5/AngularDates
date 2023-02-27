@@ -15,13 +15,15 @@ export class DateComponent implements OnInit {
   displayedColumns: string[] = ['name', 'description', 'address', 'openingHours', 'contactInfo'];
   dataSource = new MatTableDataSource<DateClass>();
 
+  //TODO ensure this workaround is valid
   //@ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatSort, {static: false}) sort!: MatSort;
 
   constructor(private router: Router, private $date: DatesService) {
     $date.getDates().subscribe( (result: DateClass[]) =>
     {
       this.dataSource = new MatTableDataSource<DateClass>(result);
-      //this.dataSource.sort = this.sort;
+      this.dataSource.sort = this.sort;
       console.log("retrieved data from server.");
     });
   }

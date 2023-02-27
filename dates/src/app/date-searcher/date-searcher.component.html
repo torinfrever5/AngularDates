@@ -1,0 +1,12 @@
+<div id="searcher">
+  <div>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+    <label for="search-box"> Location</label>
+  </div>
+<div>
+
+  <input type="range" id="priceRange" name="priceRange"
+         min="0" max="2">
+  <label for="priceRange">Price Range ($-$$$)</label>
+</div>
+</div>
